@@ -1,68 +1,76 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="source/sp.png">
-    <title>--SPARK--</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARKTEAM</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="navbar2" id="nav">
-        <div>
+    <header>
+        <h1>SPARK</h1>
+        <nav>
             <ul>
-                <button class="btn2"type="button" onclick="sc(1)" id="nb1"><span></span>A EQUIPE</button>
-                <button class="btn2"type="button" onclick="sc(2)" id="nb2"><span></span>PROJETOS</button>
-                <button class="btn2"type="button" onclick="sc(3)" id="nb3"><span></span>BLOG</button>
-                <button class="btn2"type="button" onclick="sc(4)" id="nb4"><span></span>PATROCINADORES</button>
-                <button class="btn2"type="button" onclick="sc(5)" id="nb5"><span></span>CONTATO</button>
+                <li><a onclick="sc(1)">A EQUIPE</a></li>
+                <li><a onclick="sc(2)">PROJETOS</a></li>
+                <li><a onclick="sc(3)">BLOG</a></li>
+                <li><a onclick="sc(4)">PATROCINADORES</a></li>
+                <li><a onclick="sc(5)">CONTATO</a></li>
             </ul>
-        </div>
-    </div>
-    </div>
-    <div class="banner">
-        <div class="content">
-            <img src="source/sp2.png" class="logo">
-        </div>
-    </div>
-    <div class="navbar" id="nav">
-        <div>
-            <ul>
-                <button class="btn1"type="button" onclick="sc(1)"><span></span>A EQUIPE</button>
-                <button class="btn1"type="button" onclick="sc(2)"><span></span>PROJETOS</button>
-                <button class="btn1"type="button" onclick="sc(3)"><span></span>DOAÇÕES</button>
-                <button class="btn1"type="button" onclick="sc(4)"><span></span>PATROCINADORES</button>
-                <button class="btn1"type="button" onclick="sc(5)"><span></span>CONTATO</button>
-            </ul>
-        </div>
-    </div>
-    <div class="banner2">
-        <div class="imgbg2">
-        </div>
-    </div>
-    <div class="banner3">
-        <div class="imgbg3">
-        </div>
-    </div>
-
+        </nav>
+    </header>
+    <main>
+        <section id="sobre" class="content-section">
+            <!--
+            <div class="homebg">
+                <img src="source/sp2.png">
+            </div>
+            -->
+            <div class="spbg">
+                <div>
+                    <h1>SPARKTEAM</h1>
+                    <p1>aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa </p1>
+                </div>
+                <img src="source/sparkbg.gif" class="imgsp">
+            </div>
+            <h2>A EQUIPE</h2>
+            <div class="aequipecont">
+                <div class="aequipeconttxt">
+                    <h1>não sei</h1>
+                    <p1>aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa </p1>
+                    <h1>não sei</h1>
+                    <p1>aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa </p1>
+                    <h1>não sei</h1>
+                    <p1>aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa </p1>
+                </div>
+            </div>
+        </section>
+        <section id="projetos" class="content-section">
+            <h2>Nossos Projetos</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Mini Sumô</h3>
+                    <p>esse bglh aí msm</p>
+                </div>
+                <div class="project-card">
+                    <h3>Sumô de Robos(vulgo sumozão)</h3>
+                    <p>esse bglh aí msm</p>
+                </div>
+                <div class="project-card">
+                    <h3>Robo Seguidor de linha</h3>
+                    <p>esse bglh aí msm</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="contato">
+        <h2>Contato</h2>
+        <p>Email: contato@spark.com</p>
+        <p>Telefone: (11) 1234-5678</p>
+    </footer>
+    <!-- Script para o scroll suave com fade-in/out -->
+    <script src="script.js"></script>
 </body>
 </html>
-<script src="script.js"></script>
-<script src="tilt.js"></script>
-<script>
-    VanillaTilt.init(document.querySelectorAll(".card"), {
-        max: 25,
-        speed: 400,
-        glare: true,
-        scale: 1,
-        transition: true
-})
-</script>
-<script>
-    VanillaTilt.init(document.querySelectorAll(".bigcard"), {
-        max: 25,    
-        speed: 400,
-        glare: true,
-        scale: 1,
-        transition: true
-})
-</script>

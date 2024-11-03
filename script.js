@@ -7,42 +7,44 @@ function sc(x) {
         behavior: 'smooth' // rolagem suave
     });
 };
+const slides = document.querySelector('.slides');
+const slideItems = document.querySelectorAll('.slide');
+const nextButton = document.querySelector('.next');
+const prevButton = document.querySelector('.prev');
+const dots = document.querySelectorAll('.dot');
+let currentIndex = 0;
 
-setInterval(() => {
-    const nav=document.getElementById("nav");
-    const documentHeight = document.documentElement.scrollHeight;
-    const navb1=document.getElementById("nb1");
-    const navb2=document.getElementById("nb2");
-    const navb3=document.getElementById("nb3");
-    const navb4=document.getElementById("nb4");
-    const navb5=document.getElementById("nb5");
+// Função para atualizar o slide ativo
+function updateSlides(index) {
+    const offset = -index * 100; // Calcula o deslocamento com base no índice
+    slides.style.transform = `translateX(${offset}%)`;
 
-    // Obtém a altura visível da janela
-    const windowHeight = window.innerHeight;
-    
-    // Obtém a posição atual de rolagem
-    const scrollTop = window.scrollY;
-    
-    // Calcula a porcentagem da rolagem vertical
-    const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
-    
-    if(scrollPercent.toFixed(2)>49.99){
-        nav.classList.remove("navbar2dc")
-        nav.classList.add("navbar2")
-        navb1.disabled=false;
-        navb2.disabled=false;
-        navb3.disabled=false;
-        navb4.disabled=false;
-        navb5.disabled=false;
-    }else{
-        nav.classList.add("navbar2dc")
-        nav.classList.remove("navbar2")
-        navb1.disabled=true;
-        navb2.disabled=true;
-        navb3.disabled=true;
-        navb4.disabled=true;
-        navb5.disabled=true;
-    }
+    // Atualiza a classe "active" nos dots
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
 
-    console.log("Porcentagem da rolagem vertical:", scrollPercent.toFixed(2) + "%");
-}, 10);
+// Função para ir ao próximo slide
+function showNextSlide() {
+    currentIndex = (currentIndex + 1) % slideItems.length;
+    updateSlides(currentIndex);
+}
+
+// Função para ir ao slide anterior
+function showPrevSlide() {
+    currentIndex = (currentIndex - 1 + slideItems.length) % slideItems.length;
+    updateSlides(currentIndex);
+}
+
+// Navegação pelos botões de próxima/anterior
+nextButton.addEventListener('click', showNextSlide);
+prevButton.addEventListener('click', showPrevSlide);
+
+// Navegação pelos dots
+dots.forEach(dot => {
+    dot.addEventListener('click', (event) => {
+        currentIndex = parseInt(event.target.dataset.index);
+        updateSlides(currentIndex);
+    });
+});

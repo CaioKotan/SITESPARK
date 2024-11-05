@@ -1,0 +1,257 @@
+/* Fonte e reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+:root{
+    --p1:#f7b02c;
+    --p2:#5a7df0;
+}
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header e Navbar */
+header {
+    width: 100%;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    padding: 0.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    position:   sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 20px;
+    color: var(--p1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 4rem;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s, transform 0.3s;
+    font-weight: 600;
+}
+
+nav ul li{
+    cursor: pointer;
+}
+
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background: var(--p1);
+    transition: width 0.3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    transform: scale(1.1);
+}
+
+/* Seções e Projetos */
+main {
+    flex: 1;
+    padding: 2rem 1rem;
+}
+
+.content-section {
+    max-width: 80%;
+    margin: auto;
+    margin-bottom: 3rem;
+    display: grid;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--p1);
+    margin-bottom: 1rem;
+}
+
+/* Cartões de Projeto */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.project-card {
+    width: 100%;
+    background-color: #1e1e1e;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.project-card h3 {
+    color: var(--p2);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-card p {
+    color: #b3b3b3;
+}
+
+.project-card:hover {
+
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+}
+
+/* Footer */
+footer {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header, footer {
+        width: 100%;
+        text-align: center;
+    }
+    nav li{
+        font-size: 0px;
+    }
+    header h1{
+        font-size: 24px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.imgsp{
+    width: 95%;
+    box-shadow: 0px 0px 20px #000;
+    border-radius: 10px;
+    content: url(source/sparkbg.jpg);
+    transition: 0.3s;
+    
+    
+}
+.imgsp:hover{
+    width: 100%;
+    box-shadow: 0px 0px 20px #000;
+    border-radius: 10px;
+    content: url(source/sparkbg.gif);
+    transition: 0.3s;
+    
+}
+.spbg{
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    gap: 1rem;
+    display: grid;
+    align-items: center;
+}
+.spbg h1{
+    color: var(--p2);
+}
+.homebg img{
+    width: 100%;
+    transform: translateY(-10%);
+    filter: drop-shadow(0px 0px 10px var(--p1));
+}
+.aequipecont{
+    width: 100%;
+    display: flex;
+}
+.aequipeconttxt{
+    justify-content: center;
+    margin: 20px 20px;
+}
+.aequipeconttxt h1{
+    color: var(--p2);
+}
+.logonav{
+    width: 50px;
+}
+.btnslapprtnaguentomais{
+    cursor: none;
+    width: 20px;
+    border: none;
+    background-color: #121212;
+    color: #e0e0e0;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+.btnslapprtnaguentomais:hover{
+    cursor: pointer;
+    background-color: var(--p2);
+    transition: 0.3s;
+}
+.btnslapprtnaguentomais:focus{
+    background-color: var(--p1);
+    transition: 0.3s;
+}
+.slider{
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.slider img{
+    filter: brightness(0%);
+    width: 10%;
+    height: 350px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 0.5s;
+}
+.slider img:hover{
+    filter: brightness(100%);
+    width: 60%;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 0.5s;
+}

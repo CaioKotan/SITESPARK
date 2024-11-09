@@ -13,10 +13,10 @@
         <h1>SPARK</h1>
         <nav>
             <ul>
-                <li><a onclick="sc(1)">A EQUIPE</a></li>
+                <li><a onclick="sc(0)">A EQUIPE</a></li>
                 <li><a onclick="sc(2)">PROJETOS</a></li>
                 <li><a onclick="sc(2)">EVENTOS</a></li>
-                <li><a onclick="sc(3)">BLOG</a></li>
+                <li><a onclick="AAAAAA1('verify.html')">BLOG</a></li>
                 <li><a onclick="sc(4)">PATROCINADORES</a></li>
                 <li><a onclick="sc(5)">CONTATO</a></li>
             </ul>
@@ -32,7 +32,7 @@
             <div class="spbg">
                 <div>
                     <h1>SPARKTEAM</h1>
-                    <p1>aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa </p1>
+                    <p1>Somos uma equipe jovem e apaixonada por robótica e inovação. Nosso objetivo é desenvolver projetos criativos, trocar conhecimentos e inspirar outros jovens a explorarem o mundo da tecnologia. Na SPARK, trabalhamos juntos para enfrentar desafios e buscar soluções que impactem positivamente a nossa comunidade.</p1>
                 </div>
                 <img class="imgsp">
             </div>
@@ -40,11 +40,7 @@
             <div class="aequipecont">
                 <div class="aequipeconttxt">
                     <h1>não sei</h1>
-                    <p1>aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa </p1>
-                    <h1>não sei</h1>
-                    <p1>aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa </p1>
-                    <h1>não sei</h1>
-                    <p1>aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa </p1>
+                    <p1>A equipe de robótica da ETEC Armando Pannunzio, chamada SPARK, foi fundada em [ano] pelo professor Rodrigo Watanabe. Atualmente, é coordenada pelos professores Rodrigo Watanabe e Mairá Vendramini. Composta por 13 membros, a equipe passa por atualizações constantes para incorporar novos talentos e manter-se em evolução. Na equipe, os integrantes têm a chance de se aproximar da área de engenharia, adquirindo conhecimento prático por meio do uso de tecnologias avançadas e também aprimorando a coordenação entre membros, desenvolvendo colaboração, habilidades de liderança e a capacidade de solucionar problemas.</p1>
                 </div>
             </div>
             
@@ -85,3 +81,51 @@
     <script src="script.js"></script>
 </body>
 </html>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+    
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyClsevH2Aidsh7wizkcWkcTYe25bIbOKb8",
+      authDomain: "sparkaut-7bc30.firebaseapp.com",
+      databaseURL: "https://sparkaut-7bc30-default-rtdb.firebaseio.com",
+      projectId: "sparkaut-7bc30",
+      storageBucket: "sparkaut-7bc30.firebasestorage.app",
+      messagingSenderId: "304428072052",
+      appId: "1:304428072052:web:8d4fa3a296b5f7de17e521",
+      measurementId: "G-E7B2TZ1Y2E"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+// Inicializa o banco de dados
+    const database = getDatabase(app);
+
+// Referência ao caminho dos dados no banco de dados
+    const dbRef = ref(database, 'aut/'); // Altere o caminho conforme necessário
+
+// Obtendo os dados e exibindo no console
+    get(dbRef)
+    .then((snapshot) => {
+    if (snapshot.exists()) {
+        console.log("Dados obtidos:", snapshot.val());
+    }else{
+        console.log("Nenhum dado disponível.");
+    }
+    })
+    .catch((error) => {
+        console.error("Erro ao obter dados:", error);
+    });
+
+
+</script>

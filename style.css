@@ -255,3 +255,83 @@ footer {
     text-align: center;
     transition: 0.5s;
 }
+.signup{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.signupc1{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.button1{
+    margin: 2px 2px;
+    width: 20%;
+    background-color: #00000000;
+    border-style: solid;
+    border-color: var(--p1);
+    color: var(--p1);
+    border-radius: 20px;
+    border-width: 3px;
+    height: 50px;
+    font-size: 18px;
+    transition: 0.2s;
+}
+.button2{
+    font-size: 18px;
+    margin: 2px 2px;
+    width: 20%;
+    background-color: #00000000;
+    border-style: solid;
+    border-color: var(--p2);
+    color: var(--p2);
+    border-radius: 20px;
+    border-width: 3px;
+    height: 50px;
+    transition: 0.2s;
+}
+
+.inputtxt{
+    width: 500px;
+    height: 40px;
+    background-color: #00000000;
+    border-style: solid;
+    border-color: var(--p2);
+    border-width: 2px;
+    border-radius: 4px;
+    font-size: 20px;
+    padding: 5px 5px;
+    color: #b3b3b3;
+    text-align: center;
+}
+.signupc1{
+    text-align: left;
+}
+
+.titlepage{
+    text-align: center;
+}
+.signupbtns{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.signupbtns button:hover{
+    background-color: #FFFFFF20;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.avisoc{
+    text-align: center;
+    justify-content: center;
+}
+.avisoc p1{
+    color: #FF3322DD;
+    text-align: center;
+    justify-content: center;
+}

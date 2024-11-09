@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARKTEAM</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>SPARK</h1>
+        <nav>
+            <ul>
+                <li><a onclick="sc(1)">A EQUIPE</a></li>
+                <li><a onclick="sc(2)">PROJETOS</a></li>
+                <li><a onclick="sc(2)">EVENTOS</a></li>
+                <li><a onclick="sc(3)">BLOG</a></li>
+                <li><a onclick="sc(4)">PATROCINADORES</a></li>
+                <li><a onclick="sc(5)">CONTATO</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="titlepage">
+            <h1>ENTRAR</h1>
+        </div>
+        <div class="signup">
+            <div class="signupc1">
+                <br>
+                
+                <input type="text" class="inputtxt" placeholder="NOME DO USUÁRIO" id="nameinp"><br></input>
+                
+                <input type="password" class="inputtxt" placeholder="SENHA DO USUÁRIO" id="passinp"><br></input>
+            </div>
+        </div>
+        <div class="avisoc">
+            <p1 id="aviso"></p1>
+        </div>
+        <div class="signupbtns">
+            <button class="button1" onclick="onc()">ENTRAR</button>
+            <button class="button2">ENTRAR SEM FAZER LOGIN</button>
+        </div>
+        <br><br>
+        <div class="titlepage">
+            <h1>OU</h1>
+        </div>
+        <br><br>
+        <div class="titlepage">
+            <h1>CADASTRAR</h1>
+        </div>
+        <div class="signup">
+            <div class="signupc1">
+                <br>
+                
+                <input type="text" class="inputtxt" placeholder="NOME DO USUÁRIO" id="nameinp2"><br></input>
+                <input type="password" class="inputtxt" placeholder="SENHA DO USUÁRIO" id="passinp2"><br></input>
+                <input type="password" class="inputtxt" placeholder="CONFIRMAR SENHA" id="cpassinp"><br></input>
+            </div>
+        </div>
+        <div class="avisoc">
+            <p1 id="aviso2"></p1>
+        </div>
+        <div class="signupbtns">
+            <button class="button1" onclick="onc2()">CADASTRAR</button>
+        </div>
+    <br><br>
+    </main>
+    <footer id="contato">
+        <h2>Contato</h2>
+        <p>Email: contato@spark.com</p>
+        <p>Telefone: (11) 1234-5678</p>
+    </footer>
+    <!-- Script para o scroll suave com fade-in/out -->
+
+</body>
+</html>
+<script src="script.js"></script>
+<script src="logininblog.js"></script>
+<script type="module">// Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+    apiKey: "AIzaSyClsevH2Aidsh7wizkcWkcTYe25bIbOKb8",
+    authDomain: "sparkaut-7bc30.firebaseapp.com",
+    databaseURL: "https://sparkaut-7bc30-default-rtdb.firebaseio.com",
+    projectId: "sparkaut-7bc30",
+    storageBucket: "sparkaut-7bc30.firebasestorage.app",
+    messagingSenderId: "304428072052",
+    appId: "1:304428072052:web:8d4fa3a296b5f7de17e521",
+    measurementId: "G-E7B2TZ1Y2E"
+    };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    import { getDatabase, ref, get, child, push, set } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+    // Inicializa o banco de dados
+    const database = getDatabase(app);
+
+    // Referência ao caminho dos dados no banco de dados
+    const dbRef = ref(database, '/'); // Altere o caminho conforme necessário
+
+    // Obtendo os dados e exibindo no console
+    let auts=[];
+    get(dbRef)
+    .then((snapshot) => {
+    if (snapshot.exists()) {
+        //console.log("Dados obtidos:", snapshot.val());
+        // Transforma o objeto em um array de valores
+        auts = Object.values(snapshot.val());
+        verifyaut(auts);
+        function verifyaut(obj){
+            window.nv=obj;
+        }
+        window.actcadastro=function(a,b){
+            const listaRef = ref(database, '/'); // Especifique o caminho no banco de dados
+            const novoUsuarioRef = push(listaRef); // Cria um novo nó com uma chave única
+            set(novoUsuarioRef, {
+                name: a,
+                pass: b
+            })
+            .then(() => {
+                console.log("Novo usuário adicionado com sucesso!");
+                location.reload();
+            })
+            .catch((error) => {
+                console.error("Erro ao adicionar novo usuário:", error);
+            });
+        }
+    }else{
+        console.log("Nenhum dado disponível.");
+    }
+    })
+    .catch((error) => {
+        console.error("Erro ao obter dados:", error);
+    });
+
+</script>

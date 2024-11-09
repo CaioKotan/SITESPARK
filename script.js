@@ -20,4 +20,40 @@ function sc(x) {
 function AAAAAA1(lk){
     location.href=lk;
 }
-onc();
+function changemenuv(){
+    const menuv = document.getElementById("menuv");
+    if(menuv.style.display=="flex"){
+        menuv.style.display="none";
+    }else{
+        menuv.style.display="flex";
+    }
+}
+
+if(localStorage.getItem("useraut")=="true"){
+    console.log("logged");
+    btn=document.getElementById("loginbtn")
+    if(btn){
+        btn.remove();
+        const novoItem = document.createElement("li");
+        const novoLink = document.createElement("a");
+        novoLink.textContent = "PERFIL";
+        novoLink.setAttribute("onclick", "changemenuv()");
+        novoItem.appendChild(novoLink);
+        const lista = document.getElementById("navbarul");
+        novoLink.classList.add("perfilbtn");
+        lista.appendChild(novoItem);
+        let nomemenuv = document.getElementById("nomemenuv");
+        nomemenuv.innerHTML=localStorage.getItem("userautname");
+    }
+}
+function autsair(){
+    localStorage.removeItem("useraut");
+    localStorage.removeItem("userautname");
+    localStorage.removeItem("userautpass");
+    location.reload();
+}
+function autstatus(){
+    location.href="STATUS.html";
+}
+console.log(localStorage.getItem("useraut"));
+console.log(localStorage.getItem("userautname"));

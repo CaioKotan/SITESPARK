@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARKTEAM</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>SPARK</h1>
+        <nav>
+            <ul id="navbarul">
+                <li><a onclick="sc(0)">A EQUIPE</a></li>
+                <li><a onclick="sc(2)">PROJETOS</a></li>
+                <li><a onclick="sc(2)">EVENTOS</a></li>
+                <li><a onclick="AAAAAA1('blog.html')">BLOG</a></li>
+                <li><a onclick="sc(4)">PATROCINADORES</a></li>
+                <li><a onclick="sc(5)">CONTATO</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="sobre" class="content-section">
+            <h2>STATUS</h2>
+            <div class="seuusuário">
+                <h3 id="username">NOME:</h3>
+                <h3 id="userpass">SENHA:</h3>
+                <h3 id="useradm">ADM:</h3>
+
+            </div>
+        </section>
+    </main>
+    <footer id="contato">
+        <h2>Contato</h2>
+        <p>Email: contato@spark.com</p>
+        <p>Telefone: (11) 1234-5678</p>
+    </footer>
+    <!-- Script para o scroll suave com fade-in/out -->
+    <script src="status.js"></script>
+</body>
+</html>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+    
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyClsevH2Aidsh7wizkcWkcTYe25bIbOKb8",
+      authDomain: "sparkaut-7bc30.firebaseapp.com",
+      databaseURL: "https://sparkaut-7bc30-default-rtdb.firebaseio.com",
+      projectId: "sparkaut-7bc30",
+      storageBucket: "sparkaut-7bc30.firebasestorage.app",
+      messagingSenderId: "304428072052",
+      appId: "1:304428072052:web:8d4fa3a296b5f7de17e521",
+      measurementId: "G-E7B2TZ1Y2E"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+// Inicializa o banco de dados
+    const database = getDatabase(app);
+
+// Referência ao caminho dos dados no banco de dados
+    const dbRef = ref(database, 'AUT/USERS/'); // Altere o caminho conforme necessário
+    let auts=[];
+// Obtendo os dados e exibindo no console
+    get(dbRef)
+    .then((snapshot) => {
+    if (snapshot.exists()) {
+        console.log("Dados obtidos:", snapshot.val());
+        auts = Object.values(snapshot.val());
+        verifyaut(auts);
+        function verifyaut(obj){
+            window.nv=obj;
+            for(let i in Object.values(window.nv)){
+                if((Object.values(window.nv[i]))[1]==localStorage.getItem("userautname")){
+                    localStorage.setItem("userautadm",(Object.values(window.nv)[i])[0]);
+                }
+            }
+        }
+    }else{
+        console.log("Nenhum dado disponível.");
+    }
+    })
+    .catch((error) => {
+        console.error("Erro ao obter dados:", error);
+    });
+
+
+</script>

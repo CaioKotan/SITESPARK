@@ -22,9 +22,12 @@ function onc(){
 
         let autindex=0;
 
+
         for(let i in window.nv){
-            let objnames=(Object.values(window.nv[i]))[0]
-            let objpass=(Object.values(window.nv[i]))[1]
+            let objnames=(Object.values(window.nv[i]))[1]
+            let objpass=(Object.values(window.nv[i]))[2]
+            console.log(objnames);
+            console.log(objpass);
             objnameall.push(objnames);
             objpassall.push(objpass);
             if(nameinp==objnames){
@@ -34,10 +37,15 @@ function onc(){
             }
         }   
         if(nameinp==autname&&passinp==autpass){
-            aviso.innerHTML="LOGADO"
-            
+            aviso.innerHTML="LOGADO"        
+            localStorage.setItem("useraut", "true");
+            localStorage.setItem("userautname", autname);
+            localStorage.setItem("userautpass", autpass);
+            let admlocal;
+            admlocal = Object.values(window.nv[autindex]);
+            localStorage.setItem("userautadm", admlocal[0]);
+            location.href="index.html";
         }
-
     }
 }
 function onc2(){
@@ -47,11 +55,11 @@ function onc2(){
     let aviso=document.getElementById("aviso2");
     let objnameall=[];
     for(let i in window.nv){
-            let objnames=(Object.values(window.nv[i]))[0]
-            objnameall.push(objnames);
+        let objnames=(Object.values(window.nv[i]))[1]
+        objnameall.push(objnames);
     }
     let backerror=0;
-    console.log(objnameall);
+    console.log(window.nv);
     for(let i in objnameall){
         if(nameinp2==objnameall[i]){
             backerror=1;

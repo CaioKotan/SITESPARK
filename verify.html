@@ -107,7 +107,7 @@
     const database = getDatabase(app);
 
     // Referência ao caminho dos dados no banco de dados
-    const dbRef = ref(database, '/'); // Altere o caminho conforme necessário
+    const dbRef = ref(database, '/AUT/USERS/'); // Altere o caminho conforme necessário
 
     // Obtendo os dados e exibindo no console
     let auts=[];
@@ -122,11 +122,12 @@
             window.nv=obj;
         }
         window.actcadastro=function(a,b){
-            const listaRef = ref(database, '/'); // Especifique o caminho no banco de dados
+            const listaRef = ref(database, '/AUT/USERS/'); // Especifique o caminho no banco de dados
             const novoUsuarioRef = push(listaRef); // Cria um novo nó com uma chave única
             set(novoUsuarioRef, {
                 name: a,
-                pass: b
+                pass: b,
+                adm: "false"
             })
             .then(() => {
                 console.log("Novo usuário adicionado com sucesso!");
